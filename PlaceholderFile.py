@@ -1,6 +1,5 @@
 # This is a placeholder .py file just to make sure that VS2022 can commit to this repository
 
-from pickle import FALSE
 import flet as ft
 from flet import (
     Container,
