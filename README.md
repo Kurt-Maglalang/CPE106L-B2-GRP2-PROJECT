@@ -2,8 +2,8 @@
 Preparatory Repository for Project Proposal
 
 # To Do:
- > flet_mvc
+flet_mvc
 
 # Requirements:
-> flet
-> flet_mvc
+flet
+flet_mvc

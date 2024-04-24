@@ -1,12 +1,17 @@
+from mvc.controller import Controller
+from mvc.view import Home
+from mvc.model import Model
+
 import flet as ft
 
-from .mvvm import PlaceholderViewModel  # Use dot (.) for current directory
-from mvvm import PlaceholderView
+def Main(page):
+    # Set up MVC
+    model = Model()
+    controller = Controller() # May have arguments
+    model.controller = controller 
+    view = Home() # May have arguments
+    
 
-def main(page: ft.Page):
-    vm = PlaceholderViewModel()  # Create view model instance
-    view = PlaceholderView()  # Create view instance
-
-    page.add(view)  # Add view to the page
-
+    # Run
+    
 ft.app(target=main)
