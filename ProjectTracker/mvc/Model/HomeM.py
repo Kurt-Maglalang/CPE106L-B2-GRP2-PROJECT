@@ -2,5 +2,5 @@ from flet_mvc import FletModel
 import flet as ft
 
 # Model
-class Model(FletModel):
+class HomeModel(FletModel):
     # Code for model
