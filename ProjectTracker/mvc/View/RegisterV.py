@@ -6,12 +6,12 @@ import flet as ft
 from flet import Row, Container, MainAxisAlignment, Text, Column, ElevatedButton, TextField, Page
 
 
-class LoginView(FletView):
+class RegisterView(FletView):
     def __init__(self, controller):
         self.controller = controller
         
     def main(self, page: Page):
-        page.title = "Login Page"
+        page.title = "Registration Page"
         
         page.vertical_alignment=ft.MainAxisAlignment.CENTER
         page.horizontal_alignment=ft.MainAxisAlignment.CENTER
@@ -21,7 +21,7 @@ class LoginView(FletView):
             height=720,
             border_radius=35, 
             bgcolor="white", 
-            
+
             content = Row (
                     alignment=MainAxisAlignment.CENTER,
                     controls = [
@@ -38,15 +38,14 @@ class LoginView(FletView):
                                     bgcolor="#333333",
                                     content=Column(
                                         [
-                                        Text("Login Account", size=30, color="white"),
+                                        Text("Create an Account", size=30, color="white"),
 
                                         # Text Fields for User Input
                                         TextField(label="Username", color="white"),
                                         TextField(label="Password", color="white"),
 
                                         # Buttons for LogIn/Registration, Needs Event Handlers
-                                        ElevatedButton("Log In", bgcolor="#F2F2F2", color="black"), #on_click = CONTROLLER (self,e)
-                                        ElevatedButton("Create an Account", bgcolor="#F2F2F2", color="black") #on_click = CONTROLLER (self,e)
+                                        ElevatedButton("Register", bgcolor="#F2F2F2", color="black"), #on_click = CONTROLLER (self,e)
                                         ]
                                     )
                                 )
@@ -54,5 +53,6 @@ class LoginView(FletView):
                         )
                     ]
                 )
-            )
+        )
+    
         page.add(container)

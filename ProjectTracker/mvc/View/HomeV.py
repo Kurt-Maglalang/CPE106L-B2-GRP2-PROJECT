@@ -54,6 +54,7 @@ class HomeView(FletView):
 
         first_page_contents = Container(
             content = Column(
+                spacing = 15,
                 controls=[
                     Row(
                         alignment='spaceBetween',
