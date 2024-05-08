@@ -1,10 +1,7 @@
 from flet_mvc import FletController
-import flet as ft
-
 from mvc.Model.RegisterM import RegisterModel
 from mvc.View.RegisterV import RegisterView
 
-# Controller
 class RegisterController(FletController):
     def __init__(self):
         self.model = RegisterModel()
@@ -12,3 +9,11 @@ class RegisterController(FletController):
     
     def main(self):
         self.view.main()
+    
+    def create_user(self, username, password):
+        # Call the create_user method of the model
+        try:
+            self.model.create_user(username, password)
+            print("User created successfully")
+        except Exception as e:
+            print("Error creating user:", e)
