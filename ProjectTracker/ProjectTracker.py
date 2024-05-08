@@ -2,21 +2,27 @@ import flet as ft
 from flet import app
 from flet_mvc import RouteHandler
 
+# Database Imports
+from Database.Database_SetUp import databaseSetup
+
 # MVC Imports
-from mvc.Model.HomeM import HomeModel
 from mvc.Model.LoginM import LoginModel
 from mvc.Model.RegisterM import RegisterModel
+from mvc.Model.HomeM import HomeModel
 
-from mvc.View.HomeV import HomeView
 from mvc.View.LoginV import LoginView
 from mvc.View.RegisterV import RegisterView
+from mvc.View.HomeV import HomeView
 
-from mvc.Controller.HomeC import HomeController
 from mvc.Controller.LoginC import LoginController
 from mvc.Controller.RegisterC import RegisterController
+from mvc.Controller.HomeC import HomeController
 
 def main(page: ft.page):
     routes = RouteHandler(page)
+
+    # Call Database Setup method
+    databaseSetup.create_database()
     
     # Login
     LoginM = LoginModel()
@@ -47,6 +53,6 @@ def main(page: ft.page):
 
     # Run
     # page.go(page.route)
-    RegisterV.main(page)
+    HomeV.main(page)
     
 ft.app(target=main, assets_dir="Images")
