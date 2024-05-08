@@ -1,5 +1,4 @@
 import flet as ft
-from flet import app
 from flet_mvc import RouteHandler
 
 # Database Imports
@@ -19,6 +18,7 @@ from mvc.Controller.RegisterC import RegisterController
 from mvc.Controller.HomeC import HomeController
 
 def main(page: ft.page):
+    print("Started")
     routes = RouteHandler(page)
 
     # Call Database Setup method
@@ -53,6 +53,6 @@ def main(page: ft.page):
 
     # Run
     # page.go(page.route)
-    HomeV.main(page)
+    LoginV.main(page)
     
 ft.app(target=main, assets_dir="Images")

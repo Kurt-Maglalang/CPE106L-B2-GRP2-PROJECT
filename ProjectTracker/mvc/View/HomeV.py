@@ -7,8 +7,9 @@ from flet_core import Container
 # View
 class HomeView(FletView):
     
-    def __init__(self, controller):
+    def __init__(self, controller): #add model
         self.controller = controller
+        # self.model = model
         
     def main(self, page: Page):
     # Colors, change as needed
