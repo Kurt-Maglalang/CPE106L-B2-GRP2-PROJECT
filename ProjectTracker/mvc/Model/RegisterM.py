@@ -20,6 +20,7 @@ class RegisterModel(FletModel):
             cursor = connection.cursor()
             cursor.execute("INSERT INTO user (username, password) VALUES (?, ?)", (username, password))
             connection.commit()
+            print("User created successfully")
         except sq.Error as error:
             print("Error creating user:", error)
         finally:

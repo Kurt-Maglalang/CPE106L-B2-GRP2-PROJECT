@@ -1,5 +1,4 @@
 import flet as ft
-from flet_mvc import RouteHandler
 
 # Database Imports
 from Database.Database_SetUp import databaseSetup
@@ -12,6 +11,7 @@ from mvc.Model.HomeM import HomeModel
 from mvc.View.LoginV import LoginView
 from mvc.View.RegisterV import RegisterView
 from mvc.View.HomeV import HomeView
+from mvc.View.CreateProjV import CreaterProjView
 
 from mvc.Controller.LoginC import LoginController
 from mvc.Controller.RegisterC import RegisterController
@@ -19,7 +19,6 @@ from mvc.Controller.HomeC import HomeController
 
 def main(page: ft.page):
     print("Started")
-    routes = RouteHandler(page)
 
     # Call Database Setup method
     databaseSetup.create_database()
@@ -29,30 +28,28 @@ def main(page: ft.page):
     LoginC = LoginController()    
     LoginM.controller = LoginController()
     LoginV = LoginView(LoginC)
-    routes.register_route("/", LoginView.main)
     
     # Register
     RegisterM = RegisterModel()
-    RegisterC = RegisterController()
     RegisterM.controller = RegisterController()
+    RegisterC = RegisterController()
     RegisterV = RegisterView(RegisterC)
-    routes.register_route("/Register", RegisterView.main)
 
     # Home
     HomeM = HomeModel()
     HomeC = HomeController()
     HomeM.controller = HomeController()
     HomeV = HomeView(HomeC)
-    routes.register_route("/Home", HomeView.main)
+    
+    # Create Project
+    CreateProjV = CreaterProjView(HomeC)
     
     # Page Properties
     page.title = "Project Tracker"
     page.window_width = 1080
     page.window_height = 780
-    page.on_route_change = routes.route_change
 
     # Run
-    # page.go(page.route)
     LoginV.main(page)
     
 ft.app(target=main, assets_dir="Images")

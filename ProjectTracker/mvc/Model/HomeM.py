@@ -8,6 +8,24 @@ class HomeModel(FletModel):
         self.connection = sq.connect('ProjectTracker_UserData.db')
         self.cursor = self.connection.cursor()       
         
+    def fetch_user_username(self, user_id):
+        """
+        Fetches username associated with user_id
+        
+        Parameters: user_id
+        Returns: Username if found, else None
+        """
+        try:
+            self.cursor.execute("SELECT username FROM user WHERE id = ?", (user_id,))
+            username = self.cursor.fetchone()
+            if username:
+                return username[0]
+            else:
+                return None
+        except sq.Error as error:
+            print("Error fetching user username:", error)
+            return None
+        
     @staticmethod
     def fetch_user_projects(user_id):
         """

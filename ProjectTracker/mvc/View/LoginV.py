@@ -2,6 +2,9 @@ from flet_mvc import FletView
 import flet as ft
 from flet import Row, Container, MainAxisAlignment, Text, Column, ElevatedButton, TextField, Page
 
+from mvc.View.RegisterV import RegisterView as RegisterV
+from mvc.View.HomeV import HomeView as HomeV
+
 class LoginView(FletView):
     def __init__(self, controller):
         self.controller = controller
@@ -13,8 +16,10 @@ class LoginView(FletView):
  
         username_field = TextField(label="Username", color="white")
         password_field = TextField(label="Password", color="white")
-        login_button = ElevatedButton("Register", bgcolor="#F2F2F2", color="black")
-        login_button.on_click = lambda e: self.login_button_click(username_field.value, password_field.value)
+        login_button = ElevatedButton("Log In", bgcolor="#F2F2F2", color="black")
+        login_button.on_click = lambda e: self.login_button_click(page, username_field.value, password_field.value)
+        register_button = ElevatedButton("Create an Account", bgcolor="#F2F2F2", color="black")
+        register_button.on_click = lambda e: self.register_button_click(page)
 
         container = Container(
             width=1080,
@@ -39,7 +44,7 @@ class LoginView(FletView):
                                         username_field,
                                         password_field,
                                         login_button,
-                                        ElevatedButton("Create an Account", bgcolor="#F2F2F2", color="black")
+                                        register_button
                                     ]
                                 )
                             )
@@ -50,6 +55,18 @@ class LoginView(FletView):
         )
         page.add(container)
     
-    def login_button_click(self, username, password):
-        # Call the authenticate_user method of the controller
-        self.controller.authenticate_user(username, password)
+    def login_button_click(self, page, username, password):
+        print("Login Button Clicked")
+        # Call the authenticate_user method of the controller and take user id
+        if self.controller.authenticate_user(username, password):
+            user_id = self.controller.get_user_id(username)
+            passusername = username #fsr it cant pass 'username' into the method, so had to make another variable-
+            print("Success")
+            page.clean()
+            HomeV(self.controller).main(page, user_id, passusername)          
+
+            
+    def register_button_click(self, page):
+        print("Register Button Clicked")
+        page.clean()
+        RegisterV(self.controller).main(page)

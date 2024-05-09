@@ -14,6 +14,5 @@ class RegisterController(FletController):
         # Call the create_user method of the model
         try:
             self.model.create_user(username, password)
-            print("User created successfully")
         except Exception as e:
             print("Error creating user:", e)
