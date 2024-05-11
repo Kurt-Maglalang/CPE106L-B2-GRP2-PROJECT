@@ -1,6 +1,5 @@
-# CPE106L-B2-GRP2-PROJECT
-Preparatory Repository for Project Proposal
+# PROJECT TRACKER
+Repository for Project in CPE106L
 
-# To-Do:
-Controllers
-Routehandling
+# Libraries used / Pre-Requisites:
+Flet, flet_mvc, sqlite3 (in standard lib)_
