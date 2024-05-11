@@ -11,8 +11,12 @@ class LoginController(FletController):
         self.view.main()
     
     def authenticate_user(self, username, password):
-        # Call the authenticate_user method of the model
         if self.model.authenticate_user(username, password):
             print("Authentication successful")
+            return True
         else:
             print("Authentication failed")
+            return False
+        
+    def get_user_id(self, user_id):
+        return self.model.get_user_id(user_id)
