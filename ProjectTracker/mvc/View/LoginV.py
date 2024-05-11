@@ -23,7 +23,7 @@ class LoginView(FletView):
 
         container = Container(
             width=1080,
-            height=720,
+            height=900,
             border_radius=35, 
             bgcolor="white", 
             content = Row (

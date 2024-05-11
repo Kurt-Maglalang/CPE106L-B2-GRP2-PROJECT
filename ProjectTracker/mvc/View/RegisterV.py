@@ -28,7 +28,7 @@ class RegisterView(FletView):
         # Create container
         container = Container(
             width=1080,
-            height=720,
+            height=900,
             border_radius=35,
             bgcolor="white",
             content=Row(
@@ -69,7 +69,7 @@ class RegisterView(FletView):
         from mvc.Controller.RegisterC import RegisterController as RegisterC
         print("Registration Clicked")
         
-        if username is not "" and password is not "":
+        if username != "" and password != "":
             # Create an instance of RegisterController
             register_controller = RegisterC()
             # Call the controller method on the instance

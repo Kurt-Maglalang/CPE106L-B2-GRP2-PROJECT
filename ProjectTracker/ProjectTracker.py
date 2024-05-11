@@ -46,8 +46,8 @@ def main(page: ft.page):
     
     # Page Properties
     page.title = "Project Tracker"
-    page.window_width = 1080
-    page.window_height = 780
+    page.window_width = 1100
+    page.window_height = 1000
 
     # Run
     LoginV.main(page)

@@ -22,8 +22,6 @@ class databaseSetup:
     def create_database():
         # Connect to SQLite database (creates new file if it doesn't exist)
         connection = sq.connect('ProjectTracker_UserData.db')
-        # For some REALLY odd reason, this creates the database OUTSIDE of the current directory? It places it in the repo folder
-        # when is used to place it inside the correct folder? Really Odd.
         cursor = connection.cursor()
 
         # Create Users table
