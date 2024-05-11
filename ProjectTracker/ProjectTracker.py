@@ -11,8 +11,6 @@ from mvc.Model.HomeM import HomeModel
 from mvc.View.LoginV import LoginView
 from mvc.View.RegisterV import RegisterView
 from mvc.View.HomeV import HomeView
-from mvc.View.CreateProjV import CreaterProjView
-
 from mvc.Controller.LoginC import LoginController
 from mvc.Controller.RegisterC import RegisterController
 from mvc.Controller.HomeC import HomeController
@@ -40,9 +38,6 @@ def main(page: ft.page):
     HomeC = HomeController()
     HomeM.controller = HomeController()
     HomeV = HomeView(HomeC)
-    
-    # Create Project
-    CreateProjV = CreaterProjView(HomeC)
     
     # Page Properties
     page.title = "Project Tracker"
