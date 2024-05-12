@@ -11,6 +11,7 @@ from mvc.Model.HomeM import HomeModel
 from mvc.View.LoginV import LoginView
 from mvc.View.RegisterV import RegisterView
 from mvc.View.HomeV import HomeView
+
 from mvc.Controller.LoginC import LoginController
 from mvc.Controller.RegisterC import RegisterController
 from mvc.Controller.HomeC import HomeController
